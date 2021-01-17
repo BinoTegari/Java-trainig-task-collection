@@ -3,7 +3,7 @@ package main.java;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Project_OOP {
+public class ProjectOop {
     public static void main(String[] args) {
         Menu.mainMenu();
     }
