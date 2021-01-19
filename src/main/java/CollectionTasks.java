@@ -5,11 +5,11 @@ import java.util.*;
 
 public class CollectionTasks {
     public static void main(String[] args) {
-//        outLessFive();
+        outLessFive();
 //        retainCollection();
 //        sortMinMax();
 //        unionCollection();
-        threeKeyMax();
+//        threeKeyMax();
     }
     static void threeKeyMax(){
         Map<String, Integer> myDictionary = new HashMap<>();
@@ -28,7 +28,7 @@ public class CollectionTasks {
         listValues.addAll(values);
 //        System.out.println(values);
         System.out.println(Collections.max(listValues));
-        }
+    }
 
     static void unionCollection(){
         ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1,1,2,3,5,8,13,21,34,55,89));
@@ -75,6 +75,13 @@ public class CollectionTasks {
         list.add(8, 34);
         list.add(9, 55);
         list.add(10, 89);
+        Iterator<Integer> iter = list.iterator();
+        while(iter.hasNext()){
+            Integer next = iter.next();
+            if(next <= 5){
+                System.out.println(next);
+            }
+        }
         System.out.println(list);
         for (int x : list) {
             if (x < 5) {
