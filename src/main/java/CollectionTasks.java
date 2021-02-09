@@ -18,9 +18,12 @@ public class CollectionTasks {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите значение: ");
         Integer num = scan.nextInt();
-        List numToString = Arrays.asList(String.valueOf(num));
-        System.out.println(numToString);
-        System.out.println();
+//        List numToString = Arrays.asList(String.valueOf(num));
+        ArrayList<Integer> number = new ArrayList();
+        number.add(num);
+
+
+        System.out.println(number.get(0).toString());
     }
     static void threeKeyMax() {
         //Вывести три самых высоких значения ключа
