@@ -20,6 +20,7 @@ public class CollectionTasks {
         Integer num = scan.nextInt();
         List numToString = Arrays.asList(String.valueOf(num));
         System.out.println(numToString);
+        System.out.println();
     }
     static void threeKeyMax() {
         //Вывести три самых высоких значения ключа
