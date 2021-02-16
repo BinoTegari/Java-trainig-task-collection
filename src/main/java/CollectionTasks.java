@@ -2,29 +2,74 @@ package main.java;
 
 import java.util.*;
 
-
 public class CollectionTasks {
     public static void main(String[] args) {
-//        outLessFive();
-//        retainCollection();
-//        sortMinMax();
-//        unionCollection();
-//        threeKeyMax();
-        numToString();
+        try {
+//            outLessFive();
+//            retainCollection();
+//            sortMinMax();
+//            unionCollection();
+//            threeKeyMax();
+//            numToString();
+//            pascalTriangleCollection();
+            palindrome();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
-    static void numToString(){
+    static void palindrome() {
+        System.out.println("Введите строку :");
+        Scanner scan = new Scanner(System.in);
+        String in = scan.nextLine();
+        ArrayList originString = new ArrayList();
+        ArrayList reverseString = new ArrayList();
+        String noWhitespaceString = in.replaceAll(" ", "").toLowerCase();
+        for (int i = 0; i < noWhitespaceString.length(); i++) {
+            originString.add(i, noWhitespaceString.charAt(i));
+        }
+        for(int j = 0;j<originString.size();j++){
+            reverseString.add(j,originString.get(originString.size()-1-j));
+        }
+        if (reverseString.equals(originString)) {
+            System.out.println("Палиндром");
+        }else System.out.println("Не палиндром");
+    }
+
+    static void pascalTriangleCollection() throws Exception {
+        System.out.println("Введите высоту треугольника n");
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        if (n > 4) throw new Exception("Воу воу потише, у меня тут не суперкомпьютер, а скромный старенький мак)");
+        ArrayList arrayList = new ArrayList();
+        TreeSet treeSet = new TreeSet();
+        ProjectOop.InOut.Numbers.pascalTriangle(n);
+        for (int i = 0; i < n; i++) {
+            int number = 1;
+            for (int j = 0; j <= i; j++) {
+                number = number * (i - j) / (j + 1);
+                treeSet.add(number);
+                arrayList.add(j, number);
+            }
+        }
+        System.out.println("TreeSet - " + treeSet);
+        System.out.println("ArrayList - " + arrayList);
+
+    }
+
+    static void numToString() {
         //Перевод целого числа в строку, применимо для любой системы исчисления
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите значение: ");
-        Integer num = scan.nextInt();
+        String num = scan.next();
 //        List numToString = Arrays.asList(String.valueOf(num));
-        ArrayList<Integer> number = new ArrayList();
+        ArrayList<String> number = new ArrayList();
         number.add(num);
 
 
         System.out.println(number.get(0).toString());
     }
+
     static void threeKeyMax() {
         //Вывести три самых высоких значения ключа
         Map<String, Integer> myDictionary = new HashMap<>();
@@ -41,7 +86,7 @@ public class CollectionTasks {
         Collections.sort(listValues);
         System.out.println(listValues);
         System.out.println("Три самых больших значения ключа: ");
-        for(int i=1;i<=3;i++){
+        for (int i = 1; i <= 3; i++) {
             System.out.println(listValues.get(listValues.size() - i));
         }
 
