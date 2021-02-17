@@ -341,21 +341,21 @@ public class ProjectOop {
                 System.out.printf("%.0f %s", result, s);
             }
 
-            static void converterSeconds(int second) {
-
+            static String converterSeconds(int second) {
+                String result="";
                 int minutes = 0, hour = 0, day = 0, month = 0, year = 0;
                 String totalSec = " ", totalMinutes = " ", totalHour = " ", totalDay = " ", totalMonth = " ", totalYear = " ";
                 if (second > 60) {
                     minutes = second / 60;
 
                     if ((second % 60 == 1) || ((second % 60) % 10 == 1)) {
-                        System.out.println((second % 60) + " секунда");
+//                        System.out.println((second % 60) + " секунда");
                         totalSec = " секунда";
                     } else if (((second % 60) >= 2) && ((second % 60) <= 4) || ((second % 60) % 10 >= 2) && ((second % 60) % 10 <= 4)) {
-                        System.out.println((second % 60) + " секунды");
+//                        System.out.println((second % 60) + " секунды");
                         totalSec = " секунды";
                     } else if ((second % 60) >= 5) {
-                        System.out.println((second % 60) + " секунд");
+//                        System.out.println((second % 60) + " секунд");
                         totalSec = " секунд";
                     }
 
@@ -370,13 +370,13 @@ public class ProjectOop {
                         }
 
                         if (minutes % 60 == 1) {
-                            System.out.println((minutes % 60) + " минута");
+//                            System.out.println((minutes % 60) + " минута");
                             totalMinutes = " минута";
                         } else if (((minutes % 60) >= 2) && ((minutes % 60) <= 4) || ((minutes % 60) % 10 >= 2) && ((minutes % 60) % 10 <= 4)) {
-                            System.out.println((minutes % 60) + " минуты");
+//                            System.out.println((minutes % 60) + " минуты");
                             totalMinutes = " минуты";
                         } else if ((minutes % 60) >= 5) {
-                            System.out.println((minutes % 60) + " минут");
+//                            System.out.println((minutes % 60) + " минут");
                             totalMinutes = " минут";
                         }
 
@@ -390,13 +390,13 @@ public class ProjectOop {
                                 totalDay = " дней";
                             }
                             if ((hour % 24 == 1) || ((hour % 24) % 10 == 1)) {
-                                System.out.println((hour % 24) + " час");
+//                                System.out.println((hour % 24) + " час");
                                 totalHour = " час";
                             } else if (((hour % 24) >= 2) && ((hour % 24) <= 4)) {
-                                System.out.println((hour % 24) + " часа");
+//                                System.out.println((hour % 24) + " часа");
                                 totalHour = " часа";
                             } else if ((hour % 24) >= 5) {
-                                System.out.println((hour % 24) + " часов");
+//                                System.out.println((hour % 24) + " часов");
                                 totalHour = " часов";
                             }
                             if (day > 30) {
@@ -410,13 +410,13 @@ public class ProjectOop {
                                 }
 
                                 if (day % 30 == 1) {
-                                    System.out.println((day % 30) + " день");
+//                                    System.out.println((day % 30) + " день");
                                     totalDay = " день";
                                 } else if (((day % 30) >= 2) && ((day % 30) <= 4) || ((day % 30) % 20 >= 2) && ((day % 30) % 20 <= 4)) {
-                                    System.out.println((day % 30) + " дня");
+//                                    System.out.println((day % 30) + " дня");
                                     totalDay = " дня";
                                 } else if ((day % 30) >= 5) {
-                                    System.out.println((day % 30) + " дней");
+//                                    System.out.println((day % 30) + " дней");
                                     totalDay = " дней";
                                 }
                                 if (month > 12) {
@@ -429,23 +429,23 @@ public class ProjectOop {
                                         totalYear = " лет";
                                     }
                                     if (month % 12 == 1) {
-                                        System.out.println((month % 12) + " месяц");
+//                                        System.out.println((month % 12) + " месяц");
                                         totalMonth = " месяц";
                                     } else if (((month % 12) >= 2) && ((month % 12) <= 4) || ((month % 12) % 10 >= 2) && ((month % 12) % 10 <= 4)) {
-                                        System.out.println((month % 12) + " месяца");
+//                                        System.out.println((month % 12) + " месяца");
                                         totalMonth = " месяца";
                                     } else if ((month % 12) >= 5) {
-                                        System.out.println((month % 12) + " месяцев");
+//                                        System.out.println((month % 12) + " месяцев");
                                         totalMonth = " месяцев";
                                     }
                                     if ((year == 1) || (year % 10 == 1)) {
-                                        System.out.println(year + " год");
+//                                        System.out.println(year + " год");
                                         totalYear = " год";
                                     } else if (year <= 4 || year % 10 >= 2 && year % 10 <= 4) {
-                                        System.out.println(year + " года");
+//                                        System.out.println(year + " года");
                                         totalYear = " года";
                                     } else if (year % 10 >= 5) {
-                                        System.out.println(year + " лет");
+//                                        System.out.println(year + " лет");
                                         totalYear = " лет";
                                     }
                                 }
@@ -454,22 +454,23 @@ public class ProjectOop {
                     }
                 } else {
                     if (second % 10 == 1) {
-                        System.out.println(second + " секунда");
+//                        System.out.println(second + " секунда");
                         totalSec = " секунда";
                     } else if (((second % 10) >= 2) && ((second % 10) <= 4)) {
-                        System.out.println(second + " секунды");
+//                        System.out.println(second + " секунды");
                         totalSec = " секунды";
                     } else if ((second % 10) >= 5) {
-                        System.out.println(second + " секунд");
+//                        System.out.println(second + " секунд");
                         totalSec = " секунд";
                     }
                 }
                 // костыль для удаления вывода года, когда его значения нет, но переменная year принициализирована 0
                 if (year == 0) {
-                    System.out.println(second % 60 + totalSec + "," + minutes % 60 + totalMinutes + "," + hour % 24 + totalHour + "," + day % 30 + totalDay + "," + month % 12 + totalMonth);
+                    result = second % 60 + totalSec + "," + minutes % 60 + totalMinutes + "," + hour % 24 + totalHour + "," + day % 30 + totalDay + "," + month % 12 + totalMonth;
                 } else {
-                    System.out.println(second % 60 + totalSec + "," + minutes % 60 + totalMinutes + "," + hour % 24 + totalHour + "," + day % 30 + totalDay + "," + month % 12 + totalMonth + "," + year + totalYear);
+                    result = second % 60 + totalSec + "," + minutes % 60 + totalMinutes + "," + hour % 24 + totalHour + "," + day % 30 + totalDay + "," + month % 12 + totalMonth + "," + year + totalYear;
                 }
+                return result;
             }
 
             static void numHuman(int numOfHuman, int fertility, int mortality) {

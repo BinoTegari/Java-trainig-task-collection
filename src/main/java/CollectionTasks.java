@@ -12,10 +12,53 @@ public class CollectionTasks {
 //            threeKeyMax();
 //            numToString();
 //            pascalTriangleCollection();
-            palindrome();
+//            palindrome();
+            converterSeconds();
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    static void converterSeconds(){
+        System.out.println("Ведите количество секунд: ");
+        Scanner scan = new Scanner(System.in);
+        long totalSeconds = scan.nextLong();
+        long seconds = totalSeconds%60;
+        long minutes = totalSeconds%3600/60;
+        long hours = totalSeconds%86400/3600;
+        long days = totalSeconds%2592000/86400;
+        long month = totalSeconds%31104000/2592000;
+        long years = month%12;
+        LinkedHashMap<String, Long> linkedHashMap = new LinkedHashMap<>();
+        if(seconds == 0){
+            linkedHashMap.put("секунд",seconds);
+            linkedHashMap.put("минут",minutes);
+            linkedHashMap.put("часов",hours);
+            linkedHashMap.put("дней", days);
+            linkedHashMap.put("месяцев",month);
+            linkedHashMap.put("лет",years);
+        }else {
+            if ((seconds % 10 == 0) || (seconds % 10 >= 5) || (seconds >= 12) && (seconds <= 15)) {
+                linkedHashMap.put("секунд", seconds);
+            } else if (seconds % 10 == 1) {
+                linkedHashMap.put("секунда", seconds);
+            } else if ((seconds % 10 > 1) && (seconds % 10 <= 4)) {
+                linkedHashMap.put("секунды", seconds);
+            }
+
+            if ((minutes % 10 == 0) || (minutes % 10 >= 5) || (minutes > 12) && (minutes <= 15)) {
+                linkedHashMap.put("минут", minutes);
+            } else if (minutes % 10 == 1) {
+                linkedHashMap.put("минута", minutes);
+            } else if ((minutes % 10 > 1) && (minutes % 10 <= 4)) {
+                linkedHashMap.put("минуты", minutes);
+            }
+        }
+        System.out.println(linkedHashMap);
+        String result = linkedHashMap.toString();
+        result = result.replaceAll("=",":");
+        System.out.println(result);
+
     }
 
     static void palindrome() {
