@@ -1,5 +1,6 @@
 package main.java;
 
+import java.awt.List;
 import java.util.*;
 
 public class CollectionTasks {
@@ -19,25 +20,25 @@ public class CollectionTasks {
         }
     }
 
-    static void converterSeconds(){
+    static void converterSeconds() {
         System.out.println("Ведите количество секунд: ");
         Scanner scan = new Scanner(System.in);
         long totalSeconds = scan.nextLong();
-        long seconds = totalSeconds%60;
-        long minutes = totalSeconds%3600/60;
-        long hours = totalSeconds%86400/3600;
-        long days = totalSeconds%2592000/86400;
-        long month = totalSeconds%31104000/2592000;
-        long years = month%12;
+        long seconds = totalSeconds % 60;
+        long minutes = totalSeconds % 3600 / 60;
+        long hours = totalSeconds % 86400 / 3600;
+        long days = totalSeconds % 2592000 / 86400;
+        long month = totalSeconds % 31104000 / 2592000;
+        long years = month % 12;
         LinkedHashMap<String, Long> linkedHashMap = new LinkedHashMap<>();
-        if(seconds == 0){
-            linkedHashMap.put("секунд",seconds);
-            linkedHashMap.put("минут",minutes);
-            linkedHashMap.put("часов",hours);
+        if (seconds == 0) {
+            linkedHashMap.put("секунд", seconds);
+            linkedHashMap.put("минут", minutes);
+            linkedHashMap.put("часов", hours);
             linkedHashMap.put("дней", days);
-            linkedHashMap.put("месяцев",month);
-            linkedHashMap.put("лет",years);
-        }else {
+            linkedHashMap.put("месяцев", month);
+            linkedHashMap.put("лет", years);
+        } else {
             if ((seconds % 10 == 0) || (seconds % 10 >= 5) || (seconds >= 12) && (seconds <= 15)) {
                 linkedHashMap.put("секунд", seconds);
             } else if (seconds % 10 == 1) {
@@ -53,11 +54,46 @@ public class CollectionTasks {
             } else if ((minutes % 10 > 1) && (minutes % 10 <= 4)) {
                 linkedHashMap.put("минуты", minutes);
             }
+
+            if ((hours % 10 == 0) || (hours % 10 >= 5) || (hours > 12) && (hours <= 15)) {
+                linkedHashMap.put("часов", hours);
+            } else if (hours % 10 == 1) {
+                linkedHashMap.put("час", hours);
+            } else if ((hours % 10 > 1) && (hours <= 4)) {
+                linkedHashMap.put("часа", hours);
+            }
+
+            if ((days % 10 == 0) || (days % 10 >= 5) || (days > 12) && (days <= 15)) {
+                linkedHashMap.put("дней", days);
+            } else if (days % 10 == 1) {
+                linkedHashMap.put("день", days);
+            } else if ((days % 10 > 1) && (days <= 4)) {
+                linkedHashMap.put("дня", days);
+            }
+
+            if ((month % 10 == 0) || (month % 10 >= 5)) {
+                linkedHashMap.put("месяцев", month);
+            } else if (month % 10 == 1) {
+                linkedHashMap.put("месяц", month);
+            } else if ((month % 10 > 1) && (month <= 4)) {
+                linkedHashMap.put("месяца", month);
+            }
+
+            if ((years % 10 == 0) || (years % 10 >= 5)) {
+                linkedHashMap.put("лет", years);
+            } else if (years % 10 == 1) {
+                linkedHashMap.put("год", years);
+            } else if ((years % 10 > 1) && (years <= 4)) {
+                linkedHashMap.put("года", years);
+            }
         }
-        System.out.println(linkedHashMap);
         String result = linkedHashMap.toString();
-        result = result.replaceAll("=",":");
+        result = result.replaceAll("=", ":");
         System.out.println(result);
+//        ArrayList<String> list = new ArrayList<String>(linkedHashMap.entrySet());
+//        Collections.reverse(list);
+//        System.out.println(list);
+
 
     }
 
@@ -71,12 +107,12 @@ public class CollectionTasks {
         for (int i = 0; i < noWhitespaceString.length(); i++) {
             originString.add(i, noWhitespaceString.charAt(i));
         }
-        for(int j = 0;j<originString.size();j++){
-            reverseString.add(j,originString.get(originString.size()-1-j));
+        for (int j = 0; j < originString.size(); j++) {
+            reverseString.add(j, originString.get(originString.size() - 1 - j));
         }
         if (reverseString.equals(originString)) {
             System.out.println("Палиндром");
-        }else System.out.println("Не палиндром");
+        } else System.out.println("Не палиндром");
     }
 
     static void pascalTriangleCollection() throws Exception {
