@@ -2,6 +2,8 @@ package main.java;
 
 import java.awt.List;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CollectionTasks {
     public static void main(String[] args) {
@@ -14,11 +16,40 @@ public class CollectionTasks {
 //            numToString();
 //            pascalTriangleCollection();
 //            palindrome();
-            converterSeconds();
+//            converterSeconds();
+            fileExtention();
         } catch (Exception e) {
             System.out.println(e);
         }
     }
+
+    static void fileExtention() {
+//        while (true) {
+            try {
+                Scanner scan = new Scanner(System.in);
+                String fileName = scan.nextLine();
+                Pattern pattern = Pattern.compile("^\\w*[.]{1}[a-z A-Z]*\\d*$");
+                Matcher matcher = pattern.matcher(fileName);
+                boolean found = matcher.matches();
+
+//                if (found) {
+//                    System.out.println(fileName);
+//                } else {
+//                    System.out.println("херня");
+//                }
+
+                ArrayList<String> words = new ArrayList<String>();
+                if (found) {
+                    for (String word : fileName.split("\\.")) {
+                        words.add(word);
+                    }
+                }
+                System.out.println(words);
+            } catch (Exception e) {
+
+            }
+        }
+//    }
 
     static void converterSeconds() {
         System.out.println("Ведите количество секунд: ");

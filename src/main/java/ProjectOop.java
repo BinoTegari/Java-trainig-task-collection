@@ -1,19 +1,24 @@
 package main.java;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ProjectOop {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+        PrintStream outStream = new PrintStream(new FileOutputStream("log.txt"));
+        System.setOut(outStream);
         Menu.mainMenu();
     }
 
     static class Menu {
-        static void mainMenu() {
+        static void mainMenu() throws FileNotFoundException {
             boolean exit = true;
             while (exit) {
-                Scanner scan = new Scanner(System.in);
-                try {
+                try(Scanner scan = new Scanner(System.in);) {
                     System.out.println("Главное меню\nВыберите пункт:\n1.Задачи с операторами сравнения" +
                             "\n2.Задачи с числами\n3.Задачи с массивами\n0.Выход");
                     int q = scan.nextInt();
@@ -28,7 +33,6 @@ public class ProjectOop {
                             arraysMenu();
                             break;
                         case 0:
-                            scan.close();
                             exit = false;
                     }
                     if (q != 0 && q < 1 || q > 3) {
