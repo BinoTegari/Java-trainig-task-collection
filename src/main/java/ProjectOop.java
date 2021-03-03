@@ -1,16 +1,16 @@
 package main.java;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ProjectOop {
+//    private static final Logger logger = new Logger("log.txt");
+
     public static void main(String[] args) throws FileNotFoundException {
-        PrintStream outStream = new PrintStream(new FileOutputStream("log.txt"));
-        System.setOut(outStream);
+//        PrintStream outStream = new PrintStream(new FileOutputStream("log.txt"));
+//        System.setOut(outStream);
+//        this.logger.write("test");
         Menu.mainMenu();
     }
 
@@ -18,7 +18,7 @@ public class ProjectOop {
         static void mainMenu() throws FileNotFoundException {
             boolean exit = true;
             while (exit) {
-                try(Scanner scan = new Scanner(System.in);) {
+                try(Scanner scan = new Scanner(System.in)) {
                     System.out.println("Главное меню\nВыберите пункт:\n1.Задачи с операторами сравнения" +
                             "\n2.Задачи с числами\n3.Задачи с массивами\n0.Выход");
                     int q = scan.nextInt();
@@ -47,8 +47,7 @@ public class ProjectOop {
         static void comparsionsMenu() {
             boolean exit = true;
             while (exit) {
-                Scanner scan = new Scanner(System.in);
-                try {
+                try (Scanner scan = new Scanner(System.in)){
                     System.out.println("Задачи с операторами сравнения\nВыберите пункт:" +
                             "\n1.XOR шифрование\n2.Сравнение чисел\n3.От одного до десяти\n4.2 или 9\n5.Сумма вклада с процентами" +
                             "\n6.Простой калькулятор\n7.Рубли в доллары\n8.Конвертер секунд\n9.Популяция за 10 лет\n10.Сумма вклада 7%\n0.Выход");
@@ -697,6 +696,30 @@ public class ProjectOop {
         }
         public String getMessage(){
             return this.message;
+        }
+    }
+    class Logger{
+        private FileOutputStream fos;
+        public static Logger logger;
+        public Logger(String filePath){
+            try {
+                this.fos = new FileOutputStream(filePath);
+            }catch (FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }
+        public void write(String logString){
+            try {
+                fos.write(logString.getBytes());
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+        public static Logger getLogger(String filePath){
+            if(logger == null) {
+                logger = new ProjectOop.Logger(filePath);
+            }
+            return logger;
         }
     }
 }
